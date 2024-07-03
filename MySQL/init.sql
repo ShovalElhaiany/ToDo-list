@@ -1,0 +1,19 @@
+
+CREATE DATABASE to_do_list;
+
+USE to_do_list;
+
+CREATE TABLE user (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    first_name VARCHAR(255)
+);
+
+CREATE TABLE task (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    data VARCHAR(10000),
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
